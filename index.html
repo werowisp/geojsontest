@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>소셜 인텔리전스</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+<!-- 헤더 부분 입니다 -->
+			<section id="header">
+				<div class="inner">
+					<h1><strong>Daniel Craig</strong><br/></h1>
+					<p>New James Bond in the 007 Series<br />
+					Let's find out where he's been in his movie</p>
+					<ul class="actions special">
+						<li><a href="#one" class="button scrolly">ARABOZA</a></li>
+					</ul>
+				</div>
+			</section>
+
+<!-- 첫 번째 단락입니다 -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2>Introduction<br/></h2>
+							</header>
+							<p>대니얼 크레이그(1968년 3월 2일 ~ )는 영국의 배우 겸 영화 제작자이다. 2006년부터 6번째의 제임스 본드의 배역을 맡아, 현재까지 출연하고 있다.
+영화 《로드 투 퍼디션》, 《레이어 케이크》, 《툼 레이더》등에 출연하며, 지명도를 높였다.
+이후 제임스 본드의 6번째 배우로 선택되었고, 2006년 개봉한 영화 《카지노 로얄》은 시리즈에서 가장 높은 흥행수입을 기록하게 되었다.
+2019년에 개봉하는 25번째 시리즈 《본드 25》에도 주연을 맡아 제작중이다.</p>
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<span class="image fit"><img src="images/craig.jpg" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+<!-- 두번째 단락입니다 -->
+			<section id="two" class="main style2">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<ul class="major-icons">
+								<img src="images/daniel.jpg" width=1150px, height=750px/>
+							</ul>
+						</div>
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2><br/>Daniel Craig's Journey</h2>
+							</header>
+							<p>007 카지노로얄<br>
+								프라하→마다가스카→런던→바하마→마이애미→몬테네그로→이탈리아 베니스</p>
+								<br>
+								<p>007 퀀텀 오브 솔러스<br>
+									런던→아이티→오스트리아→이탈리아 시에나→볼리비아→필리핀 카브라 섬→ 모스크바</p>
+									<br>
+									<p>007 스카이 폴<br>
+										이스탄불→런던→상하이→마카오→스코틀랜드</p>
+										<br>
+										<p>007 스펙터<br>
+											멕시코 소칼로 광장→런던→로마→오스트리아 솔덴→북아프리카 탕헤르</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+<!-- d3를 이용해 지도를 그리는 부분입니다 -->
+			<script src="http://d3js.org/d3.v3.min.js"></script>
+			<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+			<script src="http://d3js.org/topojson.v1.min.js"></script>
+			<script>
+			var width = 960,
+					height = 500;
+
+			var projection = d3.geo.equirectangular(),
+					graticule = d3.geo.graticule();
+
+			var path = d3.geo.path()
+					.projection(projection);
+
+			var svg = d3.select("body").append("svg")
+					.attr("width", width)
+					.attr("height", height);
+
+			svg.append("path")
+					.datum(graticule.outline)
+					.attr("class", "graticule outline")
+					.attr("d", path);
+
+			d3.json("readme-world.json", function(error, world) {
+				var countries = topojson.feature(world, world.objects.countries).features,
+						neighbors = topojson.neighbors(world.objects.countries.geometries);
+
+				svg.selectAll(".country")
+						.data(countries)
+						.enter().insert("path", ".graticule")
+						.attr("class", "country")
+						.attr("d", path)
+
+/* 그림에 점을 찍는 좌표 데이터 */
+			var a = [13.9065791, 50.0583272];
+					b = [47.2330035, -18.6093372];
+					c = [-0.12775829999998223, 51.5910899];
+					d = [-77.39627999999999, 25.03428];
+					e = [-80.289229, 25.795865];
+					f = [17.1556159, 42.672438];
+					g = [11.8226842, 45.4031796];
+					h = [-0.12775829999998223, 51.5910899];
+					i = [-72.285215, 18.971187];
+					j = [14.550072, 47.516231];
+					k = [11.330757400000039, 43.31880899999999];
+					l = [-63.58865300000002, -16.290154];
+					m = [120.04714949999993, 13.8759354];
+					n = [37.617299900000035, 55.755826];
+					o = [28.97, 41.008];
+					p = [-0.12775829999998223, 51.5910899];
+					q = [121.473, 31.23];
+					r = [113.543, 22.198];
+					s = [-4.2821, 57.6439];
+					t = [-99.132, 19.432];
+					u = [-0.12775829999998223, 51.5910899];
+					v = [12.4963, 41.9027];
+					w = [14.550072, 47.51623];
+					x = [-5.8339, 35.7594];
+
+			 console.log(projection(a),projection(b),projection(c),projection(d),
+			 projection(e),projection(f),projection(g),projection(h),projection(i),projection(j),
+			 projection(k),projection(l),projection(m),projection(n),projection(o),projection(p),
+			 projection(q),projection(r),projection(s),projection(t),projection(u),projection(v),projection(w),projection(x));
+
+/* 프로젝션한 좌표(점) 부분을 circle로 그린다 */
+			 svg.selectAll("circle")
+				 .data([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x]).enter()
+				 .append("circle")
+				 .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+				 .attr("cy", function (d) { return projection(d)[1]; })
+				 .attr("r", "7px")
+	 });
+			</script>
+
+<!-- 세번째 단락입니다 -->
+			<section id="three" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>더 알아보기</h2>
+					</header>
+					<p>그의 출연작에 대해 자세히 알아보자</p>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/카지노로얄.jpg" alt="" /></span>
+							<h3>007 카지노 로얄</h3>
+							<ul class="actions special">
+								<li><a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=42117" class="button">More</a></li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/퀀텀오브솔러스.jpg" alt="" /></span>
+							<h3>007 퀀텀 오브 솔러스</h3>
+							<ul class="actions special">
+								<li><a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=65610" class="button">More</a></li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/스카이폴.jpg" alt="" /></span>
+							<h3>007 스카이폴</h3>
+							<ul class="actions special">
+								<li><a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=70994" class="button">More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+<!-- 푸터입니다 -->
+			<section id="footer">
+
+				<ul class="copyright">
+					<li>Sejong Univ.</li><li>Social Management Software</li><li>Social Intelligence</li>
+				</ul>
+					<ul class="copyright">
+						<li>14012150 LWR</li><li>122194 YJH</li>
+
+				</ul>
+			</section>
+
+	</body>
+</html>
